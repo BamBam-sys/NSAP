@@ -1,0 +1,197 @@
+<html>
+
+<head>
+  <title>My form</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body>
+  <div id="title" class="container-fluid">
+
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+      <a class="navbar-brand" href="index.html">nsap</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signup.html">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <form class="form" action="index.html" method="post">
+      <div class="container">
+
+        <div class="row">
+          <div class="col">
+            <input type='text' name='name' id='name' placeholder="First Name" onkeyup='signup()'>
+            <span id='mname'></span>
+          </div>
+
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <input type='text' name='lname' id='lname' placeholder="Last Name" onkeyup='signup()'>
+            <span id='mlname'></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <input type='text' name='uname' id='uname' placeholder="User Name" onkeyup='signup()'>
+            <span id='muname'></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <input type='text' name='email' id='email' placeholder="Email" onkeyup='signup()'>
+            <span id='memail'></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <input type='password' name='password' id='password' placeholder="Password" onkeyup='signup()'>
+            <span id="mpassword"></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="">
+            <input type='password' name='cpassword' id='cpassword' placeholder="Confirm Password" onkeyup='pass()'>
+            <span id="mcpassword"></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-dark" type="button" name="button">Sign Up</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function signup() {
+      var x = new Array();
+      x[0] = document.getElementById('name').value;
+      x[1] = document.getElementById('lname').value;
+      x[2] = document.getElementById('uname').value;
+      x[3] = document.getElementById('email').value;
+      x[4] = document.getElementById('password').value;
+      x[5] = document.getElementById('cpassword').value;
+
+
+      var h = new Array();
+      h[0] = "<span style='color:#f0f0f0'>Please enter your name!</span>";
+      h[1] = "<span style='color:#f0f0f0'>Please enter your last name!</span>";
+      h[2] = "<span style='color:#f0f0f0'>Please enter your Username"
+      h[3] = "<span style='color:#f0f0f0'>Please enter your email!</span>";
+      h[4] = "<span style='color:#f0f0f0'>Please enter your password!</span>";
+      h[5] = "<span style='color:#f0f0f0'>Please confirm your password!</span>";
+
+      var divs = new Array('mname', 'mlname', 'muname', 'memail', 'mpassword', 'mcpassword');
+
+      for (i in x) {
+        var error = h[i];
+        var div = divs[i];
+
+        if (x[i] == "") {
+          document.getElementById(div).innerHTML = error;
+        } else {
+          document.getElementById(div).innerHTML = '✔'
+        }
+      }
+
+
+    }
+
+
+    function pass() {
+      var first = document.getElementById('password').value;
+      var second = document.getElementById('cpassword').value;
+
+      if (second == first) {
+        document.getElementById('mcpassword').innerHTML = 'OK';
+      } else {
+        document.getElementById('mcpassword').innerHTML = "<span style='color:red'>Your Passwords dont match!</span>"
+      }
+    }
+  </script>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+
+    <div class="row">
+
+      <div class="col-3 icons footer-items">
+        <h3>nsap</h3>
+        <a href="#">team@nsap.com</a>
+        <p>+234 000 000 0000</p>
+        <a class="sm" href="https://www.instagram.com/nextstepsacceleratorprogram/"><img src="icons/instagram.svg" alt=""></a>
+        <a class="sm" href="https://twitter.com/nextstepssummit?lang=en"><img src="icons/twitter.svg" alt=""></a>
+        <a class="sm" href="https://web.facebook.com/nextstepssummit/?hc_ref=ARSrHpm9VvautAuJDDx3bj4SwRhUJC0kysVep8lZf4GlzOmMdqYIfZS8Nf0p7W1Fpw4&fref=nf&__tn__=kC-R"> <img src="icons/facebook.svg" alt=""></a>
+        <a class="sm" href="#"><img src="icons/linkedin.svg" alt=""></a>
+        <a class="sm" href="https://www.youtube.com/channel/UC-_gtsDoBZ9qlVdJzDHs3pA"> <img src="icons/youtube.svg" alt=""></a>
+
+      </div>
+      <div class="col-lg-3 footer-items">
+        <h3>courses</h3>
+        <a href="#">Android Development</a>
+        <a href="#">Digital Maketing</a>
+        <a href="#">UI/UX Design</a>
+        <a href="#">Web Development</a>
+      </div>
+      <div class="col-lg-3 footer-items">
+        <h3>discover</h3>
+        <a href="#">FAQs</a>
+        <a href="#">Terms and Policy</a>
+      </div>
+      <div class="col-lg-3 footer-items">
+        <h3>company</h3>
+        <a href="#">About</a>
+        <a href="#">Research</a>
+      </div>
+
+    </div>
+
+  </footer>
+</body>
+
+
+
+
+
+</html>
